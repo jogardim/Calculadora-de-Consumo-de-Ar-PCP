@@ -1,0 +1,131 @@
+<main class="bg-slate-900 text-slate-200 min-h-screen font-sans p-4 sm:p-8">
+  <div class="max-w-6xl mx-auto">
+    <header class="text-center mb-8 md:mb-12">
+      <h1 class="text-4xl sm:text-5xl font-bold text-cyan-400">Calculadora de Consumo de Ar PCP</h1>
+      <p class="text-slate-400 mt-2 max-w-3xl mx-auto">Calcule o número de recargas de sua carabina PCP a partir de um cilindro SCUBA.</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      <!-- Left Column: Inputs -->
+      <div class="lg:col-span-2 flex flex-col gap-6">
+
+        <!-- Scuba & Rifle Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Scuba Card -->
+          <div class="bg-slate-800/50 rounded-lg p-6 shadow-lg border border-slate-700">
+            <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 21a2 2 0 01-2-2V5a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2H7z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3V2a1 1 0 011-1h2a1 1 0 011 1v1h-4zM9 7h6" />
+              </svg>
+              Cilindro (SCUBA)
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <label for="scuba-volume" class="block text-sm font-medium text-slate-400 mb-1">Volume</label>
+                <div class="relative">
+                  <input id="scuba-volume" type="number" [(ngModel)]="scubaVolumeL" class="form-input w-full bg-slate-900 border border-slate-700 rounded-md py-2 pl-3 pr-14 text-white focus:border-cyan-500 transition">
+                  <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">Litros</span>
+                </div>
+              </div>
+              <div>
+                <label for="scuba-pressure" class="block text-sm font-medium text-slate-400 mb-1">Pressão</label>
+                <div class="relative">
+                  <input id="scuba-pressure" type="number" [(ngModel)]="scubaPressureBar" class="form-input w-full bg-slate-900 border border-slate-700 rounded-md py-2 pl-3 pr-12 text-white focus:border-cyan-500 transition">
+                  <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">BAR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Rifle Card -->
+          <div class="bg-slate-800/50 rounded-lg p-6 shadow-lg border border-slate-700">
+            <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 10l12-4 4 4-12 4-4-4z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 6l4 4" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12l-2 6h18l-2-6" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M11 12v6" />
+              </svg>
+              Carabina (PCP)
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <label for="rifle-volume" class="block text-sm font-medium text-slate-400 mb-1">Volume do Reservatório</label>
+                <div class="relative">
+                  <input id="rifle-volume" type="number" [(ngModel)]="rifleVolumeCC" class="form-input w-full bg-slate-900 border border-slate-700 rounded-md py-2 pl-3 pr-12 text-white focus:border-cyan-500 transition">
+                  <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">cm³</span>
+                </div>
+              </div>
+              <div>
+                <label for="rifle-target-pressure" class="block text-sm font-medium text-slate-400 mb-1">Pressão de Recarga</label>
+                <div class="relative">
+                  <input id="rifle-target-pressure" type="number" [(ngModel)]="rifleTargetPressureBar" class="form-input w-full bg-slate-900 border border-slate-700 rounded-md py-2 pl-3 pr-12 text-white focus:border-cyan-500 transition">
+                  <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">BAR</span>
+                </div>
+              </div>
+              <div>
+                <label for="rifle-min-pressure" class="block text-sm font-medium text-slate-400 mb-1">Pressão Mínima</label>
+                <div class="relative">
+                  <input id="rifle-min-pressure" type="number" [(ngModel)]="rifleMinPressureBar" class="form-input w-full bg-slate-900 border border-slate-700 rounded-md py-2 pl-3 pr-12 text-white focus:border-cyan-500 transition">
+                  <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">BAR</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Hose Card -->
+        <div class="bg-slate-800/50 rounded-lg p-6 shadow-lg border border-slate-700">
+          <h2 class="text-xl font-semibold text-white mb-4 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.5 10.5c3.333-3 6.667-3 10 0" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 13.5c-3.333 3-6.667 3-10 0" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 19l-1-1v-2.5a2.5 2.5 0 0 1 2.5-2.5H8" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M20 5l1 1v2.5a2.5 2.5 0 0 1-2.5 2.5H16" />
+            </svg>
+            Capilar (Mangueira)
+          </h2>
+          <div class="flex items-center space-x-6">
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="hose" value="50" [(ngModel)]="hoseLengthOption" class="form-radio h-4 w-4 text-cyan-500 bg-slate-700 border-slate-600 focus:ring-cyan-500">
+              <span class="text-slate-300">50 cm</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="hose" value="100" [(ngModel)]="hoseLengthOption" class="form-radio h-4 w-4 text-cyan-500 bg-slate-700 border-slate-600 focus:ring-cyan-500">
+              <span class="text-slate-300">100 cm</span>
+            </label>
+            <label class="flex items-center space-x-2 cursor-pointer">
+              <input type="radio" name="hose" value="custom" [(ngModel)]="hoseLengthOption" class="form-radio h-4 w-4 text-cyan-500 bg-slate-700 border-slate-600 focus:ring-cyan-500">
+              <span class="text-slate-300">Outro</span>
+            </label>
+          </div>
+          @if (hoseLengthOption() === 'custom') {
+            <div class="mt-4">
+              <label for="hose-custom" class="block text-sm font-medium text-slate-400 mb-1">Tamanho Personalizado</label>
+              <div class="relative">
+                <input id="hose-custom" type="number" [(ngModel)]="hoseCustomLengthCm" class="form-input w-full bg-slate-900 border border-slate-700 rounded-md py-2 pl-3 pr-12 text-white focus:border-cyan-500 transition">
+                <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-500">cm</span>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      
+      <!-- Right Column: Result -->
+      <div class="lg:col-span-1">
+        <div class="bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg p-6 shadow-2xl flex flex-col items-center justify-center text-white h-full min-h-[300px]">
+          <h2 class="text-xl font-semibold mb-4 opacity-80">Resultado Estimado</h2>
+          <div class="text-center">
+            <span class="text-8xl font-bold tracking-tighter">{{ numberOfRefills() }}</span>
+            <p class="text-lg mt-1 opacity-90">Recargas Completas</p>
+          </div>
+          <div class="mt-auto pt-8 text-center text-xs opacity-70">
+            <p>Este é um cálculo aproximado e não considera variações de temperatura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

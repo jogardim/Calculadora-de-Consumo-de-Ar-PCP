@@ -1,0 +1,5 @@
+{
+  "name": "Calculadora de Consumo de Ar PCP",
+  "description": "Uma aplicação para calcular o número de recargas de uma carabina de ar comprimido (PCP) a partir de um cilindro SCUBA, considerando o volume e a pressão de ambos, bem como o tamanho da mangueira de transferência.",
+  "requestFramePermissions": []
+}
